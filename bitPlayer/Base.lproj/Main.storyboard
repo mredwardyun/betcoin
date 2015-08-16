@@ -99,7 +99,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="hpC-aG-Zsw"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -158,7 +158,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKu-zM-rcd">
                                 <rect key="frame" x="429" y="211" width="150" height="19.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -231,7 +231,7 @@
                                     <action selector="statsChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="lmu-7b-iQe"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0200 BTC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cx0-Ef-hIz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0100 BTC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cx0-Ef-hIz">
                                 <rect key="frame" x="251" y="517.5" width="98" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="98" id="NRE-Kz-BqF"/>
@@ -247,7 +247,7 @@
                                     <action selector="betSliderValueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="OBH-aE-rPl"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$2.64" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQT-vM-V68">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$2.67" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQT-vM-V68">
                                 <rect key="frame" x="251" y="466.5" width="98" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="0eg-iF-5xv"/>
@@ -395,6 +395,7 @@
                         <outlet property="statsSelectionLabel" destination="hyH-EF-GAD" id="NwQ-n0-db7"/>
                         <outlet property="titleLabel" destination="qPe-8d-DIX" id="Wyd-WO-q5a"/>
                         <outlet property="usdAmount" destination="rQT-vM-V68" id="uX4-P6-BJ8"/>
+                        <segue destination="5n2-gd-8F7" kind="show" identifier="submit" id="qV4-4q-BXV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -415,29 +416,52 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="42" placeholderIntrinsicHeight="20.5" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBx-Ww-u2e">
                                 <rect key="frame" x="279" y="446" width="42" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="42" placeholderIntrinsicHeight="20.5" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="foC-n6-Jar">
                                 <rect key="frame" x="279" y="482" width="42" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kwE-7t-fWL">
+                                <rect key="frame" x="284" y="144" width="33" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Bet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQG-TA-7Bq">
+                                <rect key="frame" x="271.5" y="106" width="57.5" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="sQG-TA-7Bq" secondAttribute="centerX" constant="-0.5" id="F5U-IT-Afp"/>
+                            <constraint firstAttribute="centerX" secondItem="kwE-7t-fWL" secondAttribute="centerX" constant="-0.5" id="FIT-pV-hlt"/>
+                            <constraint firstItem="sQG-TA-7Bq" firstAttribute="top" secondItem="oJJ-t1-rAy" secondAttribute="bottom" constant="42" id="PSk-ci-gWM"/>
+                            <constraint firstItem="kwE-7t-fWL" firstAttribute="top" secondItem="sQG-TA-7Bq" secondAttribute="bottom" constant="16.5" id="S6l-MW-PoI"/>
+                            <constraint firstItem="kwE-7t-fWL" firstAttribute="top" secondItem="oJJ-t1-rAy" secondAttribute="bottom" constant="80" id="SXT-qC-Apr"/>
                             <constraint firstItem="foC-n6-Jar" firstAttribute="top" secondItem="vBx-Ww-u2e" secondAttribute="bottom" constant="15.5" id="TQ1-bo-o4Q"/>
                             <constraint firstItem="vBx-Ww-u2e" firstAttribute="centerX" secondItem="foC-n6-Jar" secondAttribute="centerX" id="bMQ-0L-k5i"/>
                             <constraint firstAttribute="centerX" secondItem="foC-n6-Jar" secondAttribute="centerX" id="btH-dT-ohd"/>
                             <constraint firstItem="T3W-w5-Fn3" firstAttribute="top" secondItem="foC-n6-Jar" secondAttribute="bottom" constant="53.5" id="rhx-5d-08i"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="SXT-qC-Apr"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="My Wallet" id="Ioq-7c-k4C"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="betDescription" destination="kwE-7t-fWL" id="4Np-gf-gcn"/>
                         <outlet property="myWalletBalance" destination="vBx-Ww-u2e" id="arb-45-iN7"/>
                         <outlet property="otherWalletBalance" destination="foC-n6-Jar" id="Ooa-cP-gC8"/>
                     </connections>
@@ -507,4 +531,7 @@
             <point key="canvasLocation" x="1121" y="-428"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="qV4-4q-BXV"/>
+    </inferredMetricsTieBreakers>
 </document>

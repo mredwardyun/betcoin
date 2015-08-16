@@ -41,9 +41,7 @@ class TodaysGamesViewController: UIViewController {
     @IBOutlet weak var usdAmount: UILabel!
     @IBOutlet weak var btcAmount: UILabel!
     
-    var matchup: Int = 0
-    var stat: Int = 0
-    var home: Int = 0
+    var selected = false
     
     var betAmount = 0.0
     let userDefault = NSUserDefaults.standardUserDefaults()
@@ -100,13 +98,10 @@ class TodaysGamesViewController: UIViewController {
         
         case 0:
             getPlayerStats("I41iguslOF")
-            matchup = 0
         case 1:
             getPlayerStats("G23LOs1800")
-            matchup = 1
         case 2:
             getPlayerStats("rJfjkOHebz")
-            matchup = 2
         default:
             break
             
@@ -120,13 +115,10 @@ class TodaysGamesViewController: UIViewController {
             
         case 0:
             titleLabel.text = "Who will score the most points tonight?"
-            stat = 0
         case 1:
             titleLabel.text = "Who will have the most assists tonight?"
-            stat = 1
         case 2:
             titleLabel.text = "Who will shoot the best percentage tonight?"
-            stat = 2
         default:
             break
             
@@ -139,36 +131,41 @@ class TodaysGamesViewController: UIViewController {
         var usdValue = betAmount*266.91
         self.btcAmount.text = NSString(format: "%.4f BTC", betAmount) as String
         self.usdAmount.text = NSString(format:"\u{24}%.2f", usdValue) as String
-        userDefault.setDouble(betAmount, forKey: "betAmount")
     }
     
     @IBAction func submitButtonTouched(sender: UIButton) {
-        if home == 0 {
+        if !selected {
             let alertController = UIAlertController(title: "Uh Oh", message: "Please select a player before submitting your bet!", preferredStyle: UIAlertControllerStyle.Alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
             
             self.presentViewController(alertController, animated: true, completion: nil)
         }
         else {
+            var matchup = gameSelectionControl.selectedSegmentIndex
+            var stat = statsSelectionControl.selectedSegmentIndex
+            var home = true
+            if awayPlayerLabel.textColor == UIColor.greenColor() {
+                home = false
+            }
             userDefault.setInteger(matchup, forKey: "matchup")
             userDefault.setInteger(stat, forKey: "stat")
-            userDefault.setInteger(home, forKey: "home")
-            matchup = 0
-            stat = 0
-            home = 0
+            userDefault.setBool(home, forKey: "home")
+            userDefault.setDouble(betAmount, forKey: "betAmount")
             colorHomeText(UIColor.blackColor())
             colorAwayText(UIColor.blackColor())
+            selected = false
+            performSegueWithIdentifier("submit", sender: nil)
         }
     }
     
     @IBAction func homePlayerTouched(sender: UIButton) {
-        home = 1
+        selected = true
         colorHomeText(UIColor.greenColor())
         colorAwayText(UIColor.blackColor())
     }
     
     @IBAction func awayPlayerTouched(sender: UIButton) {
-        home = 2
+        selected = true
         colorAwayText(UIColor.greenColor())
         colorHomeText(UIColor.blackColor())
     }
