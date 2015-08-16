@@ -41,6 +41,10 @@ class TodaysGamesViewController: UIViewController {
     @IBOutlet weak var usdAmount: UILabel!
     @IBOutlet weak var btcAmount: UILabel!
     
+    var matchup: Int = 0
+    var stat: Int = 0
+    var home: Int = 0
+    
     var betAmount = 0.0
     let userDefault = NSUserDefaults.standardUserDefaults()
     
@@ -96,10 +100,13 @@ class TodaysGamesViewController: UIViewController {
         
         case 0:
             getPlayerStats("I41iguslOF")
+            matchup = 0
         case 1:
             getPlayerStats("G23LOs1800")
+            matchup = 1
         case 2:
             getPlayerStats("rJfjkOHebz")
+            matchup = 2
         default:
             break
             
@@ -113,10 +120,13 @@ class TodaysGamesViewController: UIViewController {
             
         case 0:
             titleLabel.text = "Who will score the most points tonight?"
+            stat = 0
         case 1:
             titleLabel.text = "Who will have the most assists tonight?"
+            stat = 1
         case 2:
             titleLabel.text = "Who will shoot the best percentage tonight?"
+            stat = 2
         default:
             break
             
@@ -132,16 +142,36 @@ class TodaysGamesViewController: UIViewController {
         userDefault.setDouble(betAmount, forKey: "betAmount")
     }
     
+    @IBAction func submitButtonTouched(sender: UIButton) {
+        if home == 0 {
+            let alertController = UIAlertController(title: "Uh Oh", message: "Please select a player before submitting your bet!", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+        else {
+            userDefault.setInteger(matchup, forKey: "matchup")
+            userDefault.setInteger(stat, forKey: "stat")
+            userDefault.setInteger(home, forKey: "home")
+            matchup = 0
+            stat = 0
+            home = 0
+            colorHomeText(UIColor.blackColor())
+            colorAwayText(UIColor.blackColor())
+        }
+    }
+    
     @IBAction func homePlayerTouched(sender: UIButton) {
+        home = 1
         colorHomeText(UIColor.greenColor())
         colorAwayText(UIColor.blackColor())
     }
     
     @IBAction func awayPlayerTouched(sender: UIButton) {
+        home = 2
         colorAwayText(UIColor.greenColor())
         colorHomeText(UIColor.blackColor())
     }
-    
     
     func colorHomeText(color: UIColor) {
         homePlayerLabel.textColor = color

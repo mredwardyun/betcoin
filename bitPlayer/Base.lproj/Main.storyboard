@@ -269,6 +269,9 @@
                                 <state key="normal" title="Submit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="submitButtonTouched:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="acU-Q2-fXs"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -410,26 +413,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opponent's Wallet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CC8-8b-J1d">
-                                <rect key="frame" x="168" y="151" width="142" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="42" placeholderIntrinsicHeight="20.5" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBx-Ww-u2e">
+                                <rect key="frame" x="279" y="446" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="foC-n6-Jar">
-                                <rect key="frame" x="201" y="199" width="75" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Wallet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aM-vZ-vgh">
-                                <rect key="frame" x="43" y="151" width="75" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBx-Ww-u2e">
-                                <rect key="frame" x="43" y="199" width="75" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="42" placeholderIntrinsicHeight="20.5" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="foC-n6-Jar">
+                                <rect key="frame" x="279" y="482" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -437,24 +428,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="8aM-vZ-vgh" firstAttribute="top" secondItem="oJJ-t1-rAy" secondAttribute="bottom" constant="87" id="4cf-F3-VYb"/>
-                            <constraint firstItem="vBx-Ww-u2e" firstAttribute="leading" secondItem="ldV-Xm-1ZO" secondAttribute="leadingMargin" constant="27" id="50N-iM-bLa"/>
-                            <constraint firstItem="8aM-vZ-vgh" firstAttribute="leading" secondItem="ldV-Xm-1ZO" secondAttribute="leadingMargin" constant="27" id="JbD-A7-v5d"/>
-                            <constraint firstItem="vBx-Ww-u2e" firstAttribute="centerX" secondItem="8aM-vZ-vgh" secondAttribute="centerX" id="NFD-Gh-Fyt"/>
-                            <constraint firstItem="foC-n6-Jar" firstAttribute="centerX" secondItem="CC8-8b-J1d" secondAttribute="centerX" id="O6z-2I-MR7"/>
-                            <constraint firstItem="vBx-Ww-u2e" firstAttribute="width" secondItem="foC-n6-Jar" secondAttribute="width" id="Oq0-kL-VJi"/>
-                            <constraint firstItem="vBx-Ww-u2e" firstAttribute="top" secondItem="8aM-vZ-vgh" secondAttribute="bottom" constant="27.5" id="RTw-50-xdp"/>
-                            <constraint firstItem="CC8-8b-J1d" firstAttribute="centerY" secondItem="8aM-vZ-vgh" secondAttribute="centerY" id="dlS-UD-xcE"/>
-                            <constraint firstItem="foC-n6-Jar" firstAttribute="top" secondItem="CC8-8b-J1d" secondAttribute="bottom" constant="28" id="izX-HD-xdZ"/>
-                            <constraint firstItem="CC8-8b-J1d" firstAttribute="leading" secondItem="8aM-vZ-vgh" secondAttribute="trailing" constant="50" id="qtt-7T-9m1"/>
+                            <constraint firstItem="foC-n6-Jar" firstAttribute="top" secondItem="vBx-Ww-u2e" secondAttribute="bottom" constant="15.5" id="TQ1-bo-o4Q"/>
+                            <constraint firstItem="vBx-Ww-u2e" firstAttribute="centerX" secondItem="foC-n6-Jar" secondAttribute="centerX" id="bMQ-0L-k5i"/>
+                            <constraint firstAttribute="centerX" secondItem="foC-n6-Jar" secondAttribute="centerX" id="btH-dT-ohd"/>
+                            <constraint firstItem="T3W-w5-Fn3" firstAttribute="top" secondItem="foC-n6-Jar" secondAttribute="bottom" constant="53.5" id="rhx-5d-08i"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="My Wallet" id="Ioq-7c-k4C"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="myWalletBalance" destination="vBx-Ww-u2e" id="c7b-H1-Try"/>
-                        <outlet property="otherWalletBalance" destination="foC-n6-Jar" id="CaV-Ni-4sV"/>
+                        <outlet property="myWalletBalance" destination="vBx-Ww-u2e" id="arb-45-iN7"/>
+                        <outlet property="otherWalletBalance" destination="foC-n6-Jar" id="Ooa-cP-gC8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WtR-0a-GAe" userLabel="First Responder" sceneMemberID="firstResponder"/>

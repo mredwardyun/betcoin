@@ -11,8 +11,8 @@ import Foundation
 
 class WalletViewController: UIViewController {
     
-    @IBOutlet weak var myWalletBalance: UILabel!
-    @IBOutlet weak var otherWalletBalance: UILabel!
+    @IBOutlet weak var myWalletBalance: UILabel?
+    @IBOutlet weak var otherWalletBalance: UILabel?
     
     let myWalletGUID = "da0151aa-10ad-4a20-874d-e71ef49abf0d"
     let otherWalletGUID = "2e90f007-3cf1-4ff2-acd4-e833cc5857fe"
@@ -23,20 +23,37 @@ class WalletViewController: UIViewController {
     
     let saroToBtc = 100000000.0
     var betAmount = 0.0
+    var matchup = 0
+    var stat = 0
+    var home = 0
+    let userDefault = NSUserDefaults.standardUserDefaults()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let userDefault = NSUserDefaults.standardUserDefaults()
         betAmount = userDefault.doubleForKey("betAmount")
         fetchWalletBalance()
         fetchOtherWalletBalance()
-        makeOutgoingPayment()
+        getBets()
+        populateBets(matchup, stat: stat, home: home)
+        //verifyBets()
+        //makeOutgoingPayment()
+    }
+    
+    func getBets() {
+        matchup = userDefault.integerForKey("matchup")
+        stat = userDefault.integerForKey("stat")
+        home = userDefault.integerForKey("home")
+    }
+    
+    func populateBets(matchup: Int, stat: Int, home: Int) {
+        
     }
     
     func fetchWalletBalance() {
         let url = NSURL(string: "https://blockchain.info/merchant/\(myWalletGUID)/balance?password=\(myWalletPassword)")!
         let request = NSMutableURLRequest(URL: url)
-        
+        var balance = 0.0
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { (data: NSData!, response: NSURLResponse!, error: NSError!) in
             
@@ -48,21 +65,22 @@ class WalletViewController: UIViewController {
 //            println(error)
 //            println(response)
 //            println(NSString(data: data, encoding: NSUTF8StringEncoding))
-            
-            let dictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as! NSDictionary
-            let sarotoshi:AnyObject = dictionary["balance"]!
-            let btc = sarotoshi as? NSNumber
-            let balance = Double(btc!.longLongValue)/self.saroToBtc
-            
-            self.myWalletBalance.text = NSString(format: "%.4f BTC", balance) as String
+            dispatch_async(dispatch_get_main_queue(), {
+                let dictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as! NSDictionary
+                let sarotoshi:AnyObject = dictionary["balance"]!
+                let btc = sarotoshi as? NSNumber
+                balance = Double(btc!.longLongValue)/self.saroToBtc
+                self.myWalletBalance!.text = NSString(format: "My wallet contains %.4f BTC", balance) as String
+            })
         }
         task.resume()
+        
     }
     
     func fetchOtherWalletBalance() {
         let url = NSURL(string: "https://blockchain.info/merchant/\(otherWalletGUID)/balance?password=\(otherWalletPassword)")!
         let request = NSMutableURLRequest(URL: url)
-        
+        var balance = 0.0
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { (data: NSData!, response: NSURLResponse!, error: NSError!) in
             
@@ -74,13 +92,14 @@ class WalletViewController: UIViewController {
 //            println(error)
 //            println(response)
 //            println(NSString(data: data, encoding: NSUTF8StringEncoding))
-            
-            let dictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as! NSDictionary
-            let sarotoshi:AnyObject = dictionary["balance"]!
-            let btc = sarotoshi as? NSNumber
-            let balance = Double(btc!.longLongValue)/self.saroToBtc
-            
-            self.otherWalletBalance.text = NSString(format: "%.4f BTC", balance) as String
+            dispatch_async(dispatch_get_main_queue(), {
+                    let dictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as! NSDictionary
+                    let sarotoshi:AnyObject = dictionary["balance"]!
+                    let btc = sarotoshi as? NSNumber
+                    balance = Double(btc!.longLongValue)/self.saroToBtc
+                    self.otherWalletBalance!.text = NSString(format: "The other wallet contains %.4f BTC", balance) as String
+            })
+
         }
         task.resume()
     }
@@ -102,7 +121,9 @@ class WalletViewController: UIViewController {
 //            println(response)
 //            println(NSString(data: data, encoding: NSUTF8StringEncoding))
             
-            println("bet completed")
+            dispatch_async(dispatch_get_main_queue(), {
+                
+            })
         }
         
         task.resume()
