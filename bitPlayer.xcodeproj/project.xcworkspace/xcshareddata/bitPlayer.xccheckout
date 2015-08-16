@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>5C32E360-3621-400E-9336-7498005652BA</string>
+	<key>IDESourceControlProjectName</key>
+	<string>bitPlayer</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BBEF056F5A3C9B1DDA67E6386A28F0705DC8E1C3</key>
+		<string>github.com:edwardyun14/HackThePlanet2015.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>bitPlayer.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BBEF056F5A3C9B1DDA67E6386A28F0705DC8E1C3</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:edwardyun14/HackThePlanet2015.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BBEF056F5A3C9B1DDA67E6386A28F0705DC8E1C3</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BBEF056F5A3C9B1DDA67E6386A28F0705DC8E1C3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>bitPlayer</string>
+		</dict>
+	</array>
+</dict>
+</plist>

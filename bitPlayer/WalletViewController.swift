@@ -9,7 +9,10 @@
 import UIKit
 import Foundation
 
+
 class WalletViewController: UIViewController {
+    
+    var scores: [PlayerStats] = scoresData
     
     @IBOutlet weak var myWalletBalance: UILabel!
     @IBOutlet weak var otherWalletBalance: UILabel!
@@ -21,28 +24,52 @@ class WalletViewController: UIViewController {
     let otherWalletPassword = "rKy12mEcXMt%29qAn8G"
     let myBitcoinAddress = "16KYjc7ZEs5caxoTzYSjaUxBQZtxx9oS7F"
     let otherBitcoinAddress = "1pzbrXxrHEif2Lf57uyFs9acoDt5HWXdW"
-    
+        
     let saroToBtc = 100000000.0
-    var betAmount = 2.67
+    var betAmount = 0.0
     var matchup = 0
     var stat = 0
     var home = false
     let userDefault = NSUserDefaults.standardUserDefaults()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        getBets()
-        fetchWalletBalance()
-        fetchOtherWalletBalance()
-        populateBets(betAmount, matchup: matchup, stat: stat, home: home)
-        //verifyBets()
-        //makeOutgoingPayment()
     }
     
     override func viewDidAppear(animated: Bool) {
         getBets()
+        fetchWalletBalance()
+        fetchOtherWalletBalance()
         populateBets(betAmount, matchup: matchup, stat: stat, home: home)
+        var verify = verifyBets(betAmount, matchup: matchup, stat: stat, home: home)
+        var transact = userDefault.boolForKey("transact")
+        if transact {
+            makeOutgoingPayment(verify)
+        }
+    }
+    
+    func verifyBets(betAmount: Double, matchup: Int, stat: Int, home: Bool) -> Bool {
+        var player1 = scores[matchup*2]
+        var player2 = scores[matchup*2 + 1]
+        if stat == 0 {
+            if home {
+                return player1.ppg > player2.ppg
+            } else {
+                return player2.ppg > player1.ppg
+            }
+        } else if stat == 1 {
+            if home {
+                return player1.apg > player2.apg
+            } else {
+                return player2.apg > player1.apg
+            }
+        } else {
+            if home {
+                return player1.fgp > player2.fgp
+            } else {
+                return player2.fgp > player1.fgp
+            }
+        }
     }
     
     func getBets() {
@@ -122,10 +149,10 @@ class WalletViewController: UIViewController {
                 // Handle error...
                 return
             }
-            
-            //            println(error)
-            //            println(response)
-            //            println(NSString(data: data, encoding: NSUTF8StringEncoding))
+      
+//            println(error)
+//            println(response)
+//            println(NSString(data: data, encoding: NSUTF8StringEncoding))
             dispatch_async(dispatch_get_main_queue(), {
                 let dictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as! NSDictionary
                 let sarotoshi:AnyObject = dictionary["balance"]!
@@ -138,9 +165,16 @@ class WalletViewController: UIViewController {
         task.resume()
     }
     
-    func makeOutgoingPayment() {
-        let url = NSURL(string: "https://blockchain.info/merchant/\(myWalletGUID)/payment?password=\(myWalletPassword)&address=\(otherBitcoinAddress)&amount=500000&from=\(myBitcoinAddress)")!
-        //\(betAmount/self.saroToBtc)
+    func makeOutgoingPayment(verify: Bool) {
+        var url = NSURL(string: "")!
+        var bet = Int(betAmount*saroToBtc)
+        if verify {
+            url = NSURL(string: "https://blockchain.info/merchant/\(otherWalletGUID)/payment?password=\(otherWalletPassword)&address=\(myBitcoinAddress)&amount=\(bet)&from=\(otherBitcoinAddress)")!
+            println("payment: \(betAmount) received")
+        } else {
+            url = NSURL(string: "https://blockchain.info/merchant/\(myWalletGUID)/payment?password=\(myWalletPassword)&address=\(otherBitcoinAddress)&amount=\(bet)&from=\(myBitcoinAddress)")!
+            println("payment: \(betAmount) sent")
+        }
         let request = NSMutableURLRequest(URL: url)
         
         let session = NSURLSession.sharedSession()
@@ -151,17 +185,15 @@ class WalletViewController: UIViewController {
                 return
             }
             
-            //            println(error)
-            //            println(response)
-            //            println(NSString(data: data, encoding: NSUTF8StringEncoding))
+            println(error)
+            println(response)
+            println(NSString(data: data, encoding: NSUTF8StringEncoding))
             
-            dispatch_async(dispatch_get_main_queue(), {
-                
-            })
         }
         
         task.resume()
         
+        userDefault.setBool(false, forKey: "transact")
         fetchWalletBalance()
         fetchOtherWalletBalance()
     }

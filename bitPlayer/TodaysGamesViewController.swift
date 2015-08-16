@@ -43,7 +43,7 @@ class TodaysGamesViewController: UIViewController {
     
     var selected = false
     
-    var betAmount = 0.0
+    var betAmount = 0.00
     let userDefault = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
@@ -154,6 +154,7 @@ class TodaysGamesViewController: UIViewController {
             colorHomeText(UIColor.blackColor())
             colorAwayText(UIColor.blackColor())
             selected = false
+            userDefault.setBool(true, forKey:"transact")
             performSegueWithIdentifier("submit", sender: nil)
         }
     }

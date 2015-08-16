@@ -8,24 +8,6 @@
 
 import UIKit
 
-class PlayerStats: NSObject {
-    var name: String
-    var image: UIImage
-    var ppg: Double
-    var apg: Double
-    var fgp: Double
-    
-    init(name: String, image: UIImage, ppg: Double, apg: Double, fgp: Double){
-        self.name = name
-        self.image = image
-        self.ppg = ppg
-        self.apg = apg
-        self.fgp = fgp
-        
-        super.init()
-    }
-}
-
 class ScoresViewController: UITableViewController {
     
     var scores: [PlayerStats] = scoresData

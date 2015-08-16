@@ -231,7 +231,7 @@
                                     <action selector="statsChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="lmu-7b-iQe"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0100 BTC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cx0-Ef-hIz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0000 BTC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cx0-Ef-hIz">
                                 <rect key="frame" x="251" y="517.5" width="98" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="98" id="NRE-Kz-BqF"/>
@@ -241,13 +241,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.01" minValue="0.0" maxValue="0.02" translatesAutoresizingMaskIntoConstraints="NO" id="9T0-gS-YV6">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="0.02" translatesAutoresizingMaskIntoConstraints="NO" id="9T0-gS-YV6">
                                 <rect key="frame" x="64" y="487.5" width="472" height="31"/>
                                 <connections>
                                     <action selector="betSliderValueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="OBH-aE-rPl"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$2.67" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQT-vM-V68">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQT-vM-V68">
                                 <rect key="frame" x="251" y="466.5" width="98" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="0eg-iF-5xv"/>
