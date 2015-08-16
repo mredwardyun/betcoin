@@ -82,7 +82,7 @@
             </objects>
             <point key="canvasLocation" x="1933" y="-428"/>
         </scene>
-        <!--Today-->
+        <!--Today's Matchups-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="TodaysGamesViewController" customModule="bitPlayer" customModuleProvider="target" sceneMemberID="viewController">
@@ -369,7 +369,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Today" id="pGh-MS-cuj"/>
+                    <navigationItem key="navigationItem" title="Today's Matchups" id="pGh-MS-cuj"/>
                     <connections>
                         <outlet property="awayAPGLabel" destination="x6x-Wv-8hi" id="xwy-6A-NHA"/>
                         <outlet property="awayButton" destination="B7d-2Y-jac" id="Zcq-5c-NF4"/>
@@ -398,7 +398,7 @@
             </objects>
             <point key="canvasLocation" x="1933" y="284"/>
         </scene>
-        <!--Wallet View Controller-->
+        <!--My Wallet-->
         <scene sceneID="RMB-Tc-L6G">
             <objects>
                 <viewController id="5n2-gd-8F7" customClass="WalletViewController" customModule="bitPlayer" customModuleProvider="target" sceneMemberID="viewController">
@@ -450,7 +450,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="Ioq-7c-k4C"/>
+                    <navigationItem key="navigationItem" title="My Wallet" id="Ioq-7c-k4C"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="myWalletBalance" destination="vBx-Ww-u2e" id="c7b-H1-Try"/>

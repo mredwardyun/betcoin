@@ -64,15 +64,18 @@ class ScoresViewController: UITableViewController {
     }
     
     func generateData() -> [PlayerStats] {
-        let scoresData = [
-            PlayerStats(name: "James Harden", image: UIImage(named: "James Harden")!, ppg: 27.0, apg: 7.0, fgp: 44.0),
-            PlayerStats(name: "Stephen Curry", image: UIImage(named: "Stephen Curry")!, ppg: 25.8, apg: 7.7, fgp: 48.5),
-            PlayerStats(name: "LeBron James", image: UIImage(named: "LeBron James")!, ppg: 0.0, apg: 0.0, fgp: 0.0),
-            PlayerStats(name: "Kevin Durant", image: UIImage(named: "Kevin Durant")!, ppg: 0.0, apg: 0.0, fgp: 0.0),
-            PlayerStats(name: "Blake Griffin", image: UIImage(named: "Blake Griffin")!, ppg: 0.0, apg: 0.0, fgp: 0.0),
-            PlayerStats(name: "Anthony Davis", image: UIImage(named: "Anthony Davis")!, ppg: 0.0, apg: 0.0, fgp: 0.0)]
         
-        return scoresData
+        let scores = [generatePlayerData("James Harden"), generatePlayerData("Stephen Curry"), generatePlayerData("LeBron James"), generatePlayerData("Kevin Durant"), generatePlayerData("Blake Griffin"), generatePlayerData("Anthony Davis")]
+        
+        return scores
+    }
+    
+    func generatePlayerData(playerName: String) -> PlayerStats {
+        var image = UIImage(named: playerName)
+        var points = Double(arc4random_uniform(140) + 200)/10
+        var assists = Double(arc4random_uniform(70) + 30)/10
+        var fgp = Double(arc4random_uniform(200) + 350)/10
+        return PlayerStats(name: playerName, image: image!, ppg: points, apg: assists, fgp: fgp)
     }
     
     

@@ -47,8 +47,12 @@ class TodaysGamesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        getPlayerStats("I41iguslOF")
+    }
+    
+    func getPlayerStats(objectID: String) {
         var query = PFQuery(className:"NbaSchedule")
-        query.getObjectInBackgroundWithId("I41iguslOF") {
+        query.getObjectInBackgroundWithId(objectID) {
             (nbaGame: PFObject?, error:NSError?) -> Void in
             if error == nil {
                 if let nbaGame = nbaGame {
@@ -62,7 +66,7 @@ class TodaysGamesViewController: UIViewController {
                     self.awayPPGLabel.text = NSString(format: "%.1f PPG", awayPlayerStats[0]) as String
                     self.awayAPGLabel.text = NSString(format: "%.1f APG", awayPlayerStats[1]) as String
                     self.awayFGPLabel.text = NSString(format: "%.1f FG%%", awayPlayerStats[2]) as String
-
+                    
                 }
                 if let playerPhoto = nbaGame?["homePlayerImage"] as? PFFile{
                     playerPhoto.getDataInBackgroundWithBlock {
@@ -84,17 +88,29 @@ class TodaysGamesViewController: UIViewController {
                 println(error)
             }
         }
-
-
     }
     
-    @IBAction func gameChanged(sender: AnyObject) {
+    @IBAction func gameChanged(sender: UISegmentedControl) {
+        
+        switch gameSelectionControl.selectedSegmentIndex {
+        
+        case 0:
+            getPlayerStats("I41iguslOF")
+        case 1:
+            getPlayerStats("G23LOs1800")
+        case 2:
+            getPlayerStats("rJfjkOHebz")
+        default:
+            break
+            
+        }
+        
     }
     
     @IBAction func statsChanged(sender: UISegmentedControl) {
         
-        switch statsSelectionControl.selectedSegmentIndex
-        {
+        switch statsSelectionControl.selectedSegmentIndex {
+            
         case 0:
             titleLabel.text = "Who will score the most points tonight?"
         case 1:
@@ -103,6 +119,7 @@ class TodaysGamesViewController: UIViewController {
             titleLabel.text = "Who will shoot the best percentage tonight?"
         default:
             break
+            
         }
         
     }
@@ -138,22 +155,6 @@ class TodaysGamesViewController: UIViewController {
         awayPPGLabel.textColor = color
         awayAPGLabel.textColor = color
         awayFGPLabel.textColor = color
-    }
-    
-    
-    override func viewDidAppear(animated: Bool) {
-        var nav = self.navigationController?.navigationBar
-        
-        nav?.barStyle = UIBarStyle.Black
-        nav?.tintColor = UIColor.blueColor()
-        
-        let imageView = UIImageView(frame: CGRect(x:0, y:0, width: 40, height: 40))
-        imageView.contentMode = .ScaleAspectFit
-        
-        let image = UIImage(named: "Bitcoin")
-        imageView.image = image
-    
-        navigationItem.titleView = imageView
     }
     
     override func didReceiveMemoryWarning() {
