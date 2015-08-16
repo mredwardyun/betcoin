@@ -17,9 +17,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="yhF-OW-ce7" kind="relationship" relationship="viewControllers" id="V7F-aZ-tyE"/>
-                        <segue destination="jd0-cd-Gbh" kind="relationship" relationship="viewControllers" id="Myd-ml-gvD"/>
                         <segue destination="O9L-bC-bz9" kind="relationship" relationship="viewControllers" id="tnd-wj-edC"/>
+                        <segue destination="yhF-OW-ce7" kind="relationship" relationship="viewControllers" id="l3l-In-aRh"/>
+                        <segue destination="jd0-cd-Gbh" kind="relationship" relationship="viewControllers" id="6FY-Pr-BNw"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Sc-H5-gWY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -400,7 +400,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1933" y="284"/>
+            <point key="canvasLocation" x="1927" y="256"/>
         </scene>
         <!--My Wallet-->
         <scene sceneID="RMB-Tc-L6G">
@@ -433,7 +433,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Bet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQG-TA-7Bq">
-                                <rect key="frame" x="271.5" y="106" width="57.5" height="21.5"/>
+                                <rect key="frame" x="271" y="106" width="57.5" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -474,7 +474,7 @@
         <scene sceneID="mCA-YW-N3S">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yhF-OW-ce7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Today" id="Cpu-Zk-Hid"/>
+                    <tabBarItem key="tabBarItem" title="Today" image="Today" id="Cpu-Zk-Hid"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oo8-dd-LER">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -496,7 +496,7 @@
         <scene sceneID="a35-Q4-0hy">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jd0-cd-Gbh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Wallet" id="fFn-2B-jKP"/>
+                    <tabBarItem key="tabBarItem" title="Wallet" image="Bitcoin" id="fFn-2B-jKP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="a7w-Dx-vKJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -515,7 +515,7 @@
         <scene sceneID="7Vg-Ku-RQ1">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O9L-bC-bz9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Scores" id="khz-MM-VeW"/>
+                    <tabBarItem key="tabBarItem" title="Scores" image="Basketball" id="khz-MM-VeW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ogR-ea-cYo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -531,6 +531,11 @@
             <point key="canvasLocation" x="1121" y="-428"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Basketball" width="25" height="25"/>
+        <image name="Bitcoin" width="25" height="25"/>
+        <image name="Today" width="25" height="25"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="qV4-4q-BXV"/>
     </inferredMetricsTieBreakers>

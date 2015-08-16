@@ -18,6 +18,13 @@ class WalletViewController: UIViewController {
     @IBOutlet weak var otherWalletBalance: UILabel!
     @IBOutlet weak var betDescription: UILabel!
     
+    @IBOutlet weak var playerImageView: UIImageView!
+    @IBOutlet weak var playerName: UILabel!
+    @IBOutlet weak var playerPoints: UILabel!
+    @IBOutlet weak var playerAssists: UILabel!
+    @IBOutlet weak var playerFG: UILabel!
+    
+    
     let myWalletGUID = "da0151aa-10ad-4a20-874d-e71ef49abf0d"
     let otherWalletGUID = "2e90f007-3cf1-4ff2-acd4-e833cc5857fe"
     let myWalletPassword = "uZPcGmlOGNs5%5E6%245"
@@ -48,6 +55,7 @@ class WalletViewController: UIViewController {
         }
     }
     
+        
     func verifyBets(betAmount: Double, matchup: Int, stat: Int, home: Bool) -> Bool {
         var player1 = scores[matchup*2]
         var player2 = scores[matchup*2 + 1]
@@ -71,6 +79,7 @@ class WalletViewController: UIViewController {
             }
         }
     }
+    
     
     func getBets() {
         betAmount = userDefault.doubleForKey("betAmount")
